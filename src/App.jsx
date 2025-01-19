@@ -2,18 +2,23 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { result } from "lodash";
 
 function App() {
-  useEffect(() => {
-    let List = fetch("https://pokeapi.co/api/v2/")
-      .then((result) => {
-        return result.json();
-      })
-      .then((resolved) => {
-        resolved;
-      });
+  const imageArray = ["", "", "", "", "", "", "", "", "", ""];
 
-    console.log(List);
+  useEffect(() => {
+    imageArray.forEach((image, index) => {
+      fetch(
+        "https://api.giphy.com/v2/emoji?api_key=DETaKDuNib9pdzCK2Qa5lNcaO3OeatCl&limit=10&offset=0"
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          imageArray[index] = `${result.data[index].url}`;
+        });
+    });
   }, []);
 
   return (
