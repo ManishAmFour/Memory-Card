@@ -3,22 +3,15 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { result } from "lodash";
+import { configuringTheData } from "./ImageArray";
 
 function App() {
-  const imageArray = ["", "", "", "", "", "", "", "", "", ""];
-
   useEffect(() => {
-    imageArray.forEach((image, index) => {
-      fetch(
-        "https://api.giphy.com/v2/emoji?api_key=DETaKDuNib9pdzCK2Qa5lNcaO3OeatCl&limit=10&offset=0"
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((result) => {
-          imageArray[index] = `${result.data[index].url}`;
-        });
-    });
+    async function configureFunc() {
+      let ImageUrl = await configuringTheData();
+      console.log(ImageUrl.sprites.front_default);
+    }
+    configureFunc();
   }, []);
 
   return (
