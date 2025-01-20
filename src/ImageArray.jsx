@@ -1,9 +1,27 @@
-import { useState, useEffect } from "react";
+let currentImage;
+export async function FetchingTheData() {
+  const ImageArray = ["", "", "", ""];
 
-async function FetchingTheData() {
-  let pok1 = await fetch("https://pokeapi.co/api/v2/pokemon/1", {
-    mode: "cors",
-  });
+  await Promise.all(
+    ImageArray.map(async (image, index) => {
+      if (index !== 0) {
+        let rawUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/${index}`);
+        let result = await rawUrl.json();
+        ImageArray[index] = result.sprites.front_default;
+      } else {
+        let rawUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/8`);
+        let result = await rawUrl.json();
+        ImageArray[index] = result.sprites.front_default;
+      }
+    })
+  );
+
+  return ImageArray;
+
+  /*
+ 
+  
+  
   let pok2 = await fetch("https://pokeapi.co/api/v2/pokemon/2", {
     mode: "cors",
   });
@@ -30,12 +48,5 @@ async function FetchingTheData() {
   });
   let pok10 = await fetch("https://pokeapi.co/api/v2/pokemon/10", {
     mode: "cors",
-  });
-}
-
-export function configuringTheData() {
-  return FetchingTheData().then((binaryData) => {
-    let url = binaryData;
-    return url;
-  });
+  });*/
 }
