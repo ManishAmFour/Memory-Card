@@ -4,18 +4,54 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { result, set } from "lodash";
 import { FetchingTheData } from "./ImageArray";
+import { uniqueRandomNumArrayGenerator } from "./uniqueRandomGen";
 
-function ImageInteraction({ array }) {
+function ImageInteraction({ array, parentComp }) {
   const [ModifiedArray, setArray] = useState(array);
 
-  function ModifyingTheArray() {}
+  function ModifyingTheArray() {
+    let NewArray = [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+    ];
+
+    console.log(uniqueRandomNumArrayGenerator());
+
+    /*ModifiedArray.forEach((imageLink, index) => {});
+    console.log(NewArray);
+    setArray(NewArray);
+    parentComp(false);*/
+  }
 
   return ModifiedArray.map((image, index) => {
     return (
       <img
-        onClick={() => {
-          ModifyingTheArray();
-        }}
+        onClick={ModifyingTheArray}
         className="pokemon-images"
         key={index}
         src={image}
@@ -26,7 +62,7 @@ function ImageInteraction({ array }) {
 
 function App() {
   const [imagesFilledArray, setImagesFilledArray] = useState(false);
-
+  const [alterTheArray, setAlterTheArray] = useState(true);
   useEffect(() => {
     FetchingTheData().then((MainArray) => {
       setImagesFilledArray(MainArray);
@@ -43,7 +79,10 @@ function App() {
         </a>
         {imagesFilledArray ? (
           <div className="pokemon-container">
-            <ImageInteraction array={imagesFilledArray} />
+            <ImageInteraction
+              parentComp={setAlterTheArray}
+              array={imagesFilledArray}
+            />
           </div>
         ) : (
           <div>Still Loading</div>
