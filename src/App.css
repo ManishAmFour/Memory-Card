@@ -10,3 +10,11 @@
 .static-description {
   font-size: 20px;
 }
+
+.pokemon-images {
+  height: 200px;
+  width: 200px;
+}
+.pokemon-images:hover {
+  cursor: pointer;
+}

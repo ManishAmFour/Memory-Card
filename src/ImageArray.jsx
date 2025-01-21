@@ -1,6 +1,34 @@
 let currentImage;
 export async function FetchingTheData() {
-  const ImageArray = ["", "", "", ""];
+  const ImageArray = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ];
 
   await Promise.all(
     ImageArray.map(async (image, index) => {
