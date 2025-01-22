@@ -37,7 +37,7 @@ export async function FetchingTheData() {
         let result = await rawUrl.json();
         ImageArray[index] = result.sprites.front_default;
       } else {
-        let rawUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/8`);
+        let rawUrl = await fetch(`https://pokeapi.co/api/v2/pokemon/27`);
         let result = await rawUrl.json();
         ImageArray[index] = result.sprites.front_default;
       }

@@ -1,18 +1,48 @@
-import { random } from "lodash";
+export function uniqueRandomNumArrayGenerator(ModifiedArray) {
+  const Array = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ];
 
-export function uniqueRandomNumArrayGenerator() {
-  let AlreadyArray = [];
-  let NewArray = [];
-  for (let i = 0; NewArray.length < 28; i++) {
-    let randomNumber = Math.floor(Math.random() * 28);
-    console.log(randomNumber);
-    AlreadyArray.push(randomNumber);
-    AlreadyArray.forEach((number, index) => {
-      if (number !== randomNumber) {
-        NewArray.push(number);
-      }
-    });
+  for (let i = 0; check(); i++) {
+    let RandomNumber = Math.floor(Math.random() * 28);
+    Array[i] = RandomNumber;
   }
 
-  return NewArray;
+  function check() {
+    for (let i = 0; i < Array.length; i++) {
+      if (Array[i] !== "") {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+
+  return Array;
 }

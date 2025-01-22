@@ -10,41 +10,9 @@ function ImageInteraction({ array, parentComp }) {
   const [ModifiedArray, setArray] = useState(array);
 
   function ModifyingTheArray() {
-    let NewArray = [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-    ];
-
-    console.log(uniqueRandomNumArrayGenerator());
-
-    /*ModifiedArray.forEach((imageLink, index) => {});
+    let NewArray = uniqueRandomNumArrayGenerator(ModifiedArray);
     console.log(NewArray);
-    setArray(NewArray);
+    /*setArray(NewArray);
     parentComp(false);*/
   }
 
