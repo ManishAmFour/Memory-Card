@@ -1,47 +1,24 @@
 export function uniqueRandomNumArrayGenerator(ModifiedArray) {
-  const Array = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ];
+  const Array = [];
+  //const randomNumArray = [];
 
-  for (let i = 0; check(); i++) {
-    let RandomNumber = Math.floor(Math.random() * 28);
-    Array[i] = RandomNumber;
-  }
-
-  function check() {
-    for (let i = 0; i < Array.length; i++) {
-      if (Array[i] !== "") {
-        return false;
-      } else {
-        return true;
+  for (let i = 0; Array.length < 27; i++) {
+    let randomNumber = Math.floor(Math.random() * 27);
+    if (Array.length === 0) {
+      Array.push(randomNumber);
+    } else {
+      if (!Array.includes(randomNumber)) {
+        Array.push(randomNumber);
       }
     }
+  }
+
+  for (let i = 0; i < Array.length; i++) {
+    ModifiedArray.forEach((imageLink, index) => {
+      if (index === Array[i]) {
+        Array[i] = imageLink;
+      }
+    });
   }
 
   return Array;
