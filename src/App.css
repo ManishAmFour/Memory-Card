@@ -1,31 +1,50 @@
 .static-div {
-  font-family: Arial, Helvetica, sans-serif;
   position: absolute;
   top: 0;
   font-size: 70px;
   display: flex;
-
+  font-family: "Courier New", Courier, monospace;
   flex-direction: column;
+  color: white;
   row-gap: 50px;
 }
 .static-description {
   font-size: 20px;
+  margin-left: 40px;
+}
+
+.static-title {
+  margin-left: 40px;
 }
 
 .pokemon-images {
+  position: relative;
   height: 200px;
   width: 200px;
 }
 .pokemon-images:hover {
   cursor: pointer;
+  animation: normal imagehover 0.3s;
+  background-color: white;
+}
+
+@keyframes imagehover {
+  0% {
+    background-color: purple;
+  }
+  100% {
+    background-color: white;
+  }
 }
 
 .score-info {
   position: fixed;
   right: 150px;
   top: 50px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
   display: flex;
+  color: white;
   flex-direction: column;
   row-gap: 20px;
 }
